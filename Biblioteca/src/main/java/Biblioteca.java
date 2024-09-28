@@ -201,23 +201,6 @@ public class Biblioteca {
 
 
     /**
-     * Metodo para agregar un libro al prestamo
-     * @param prestamo
-     * @param libro
-     */
-    public void agregarLibroAlPrestamo(Prestamo prestamo, Libro libro) {
-        if (libro.getUnidadesDisponibles() > 0) {
-            DetallePrestamo detallePrestamo = new DetallePrestamo(libro, prestamo.getFechaPrestamo(), prestamo.getFechaEntrega());
-            prestamo.agregarDetallesPrestamos(detallePrestamo);
-            libro.agregarDetallesPrestamos(detallePrestamo);
-            libro.setUnidadesDisponibles(libro.getUnidadesDisponibles() - 1);
-            System.out.println("Libro agregado al préstamo exitosamente.");
-        } else {
-            System.out.println("No hay unidades disponibles para el libro: " + libro.getTitulo());
-        }
-    }
-
-    /**
      * Metodo que muestra la cantidad de prestamos por empleado
      */
 

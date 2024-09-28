@@ -1,42 +1,61 @@
 
+import java.time.LocalDate;
+import java.util.Collection;
 import java.util.LinkedList;
 
+/**
+ * Clase Libro la cual es el principal producto de la biblioteca
+ */
 public class Libro {
+    private String titulo;
     private String codigo;
     private String isbn;
     private String autor;
-    private String titulo;
     private String editorial;
-    private String fecha;
-    private int unidadesDisponibles;
-    private EstadoPrestamo estadoPrestamo;
-    private LinkedList<DetallePrestamo> Detallesprestamos;
+    private LocalDate fechaDePublicacion;
+    private int stock;
+    private EstadoPrestamo estado;
+    private Collection<DetallePrestamo> historialPrestamos;
 
     /**
-     * Constructor de la clase Libro
+     * Constructor de la clase libro
+     *
+     * @param titulo
      * @param codigo
      * @param isbn
      * @param autor
-     * @param titulo
      * @param editorial
-     * @param fecha
-     * @param unidadesDisponibles
+     * @param fechaDePublicacion
+     * @param stock
+     * @param estado
      */
-    public Libro(String codigo, String isbn, String autor, String titulo, String editorial, String fecha, int unidadesDisponibles, EstadoPrestamo estadoPrestamo) {
+    public Libro(String titulo, String codigo, String isbn, String autor, String editorial,
+                 LocalDate fechaDePublicacion,
+                 int stock, EstadoPrestamo estado) {
+        this.titulo = titulo;
         this.codigo = codigo;
         this.isbn = isbn;
         this.autor = autor;
-        this.titulo = titulo;
         this.editorial = editorial;
-        this.fecha = fecha;
-        this.unidadesDisponibles = unidadesDisponibles;
-        this.estadoPrestamo = estadoPrestamo;
-        Detallesprestamos = new LinkedList<>();
+        this.fechaDePublicacion = fechaDePublicacion;
+        this.stock = stock;
+        this.estado = estado;
+        historialPrestamos = new LinkedList<>();
     }
 
     /**
-     * Getters y Setters
+     * Metodos getters y setters de la clase
+     *
+     * @return
      */
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public String getCodigo() {
         return codigo;
     }
@@ -61,14 +80,6 @@ public class Libro {
         this.autor = autor;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
     public String getEditorial() {
         return editorial;
     }
@@ -77,43 +88,45 @@ public class Libro {
         this.editorial = editorial;
     }
 
-    public String getFecha() {
-        return fecha;
+    public LocalDate getFechaDePublicacion() {
+        return fechaDePublicacion;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setFechaDePublicacion(LocalDate fechaDePublicacion) {
+        this.fechaDePublicacion = fechaDePublicacion;
     }
 
-    public int getUnidadesDisponibles() {
-        return unidadesDisponibles;
+    public int getStock() {
+        return stock;
     }
 
-    public void setUnidadesDisponibles(int unidadesDisponibles) {
-        this.unidadesDisponibles = unidadesDisponibles;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-    public EstadoPrestamo getEstadoPrestamo() {
-        return estadoPrestamo;
+    public EstadoPrestamo getEstado() {
+        return estado;
     }
 
-    public void setEstadoPrestamo(EstadoPrestamo estadoPrestamo) {
-        this.estadoPrestamo = estadoPrestamo;
+    public void setEstado(EstadoPrestamo estado) {
+        this.estado = estado;
     }
 
-    public LinkedList<DetallePrestamo> getDetallesprestamos() {
-        return Detallesprestamos;
+    public Collection<DetallePrestamo> getDetallesprestamos() {
+        return historialPrestamos;
     }
 
-    public void setDetallesprestamos(LinkedList<DetallePrestamo> Detallesprestamos) {
-        this.Detallesprestamos = Detallesprestamos;
+    public void setDetallesprestamos(Collection<DetallePrestamo> historialPrestamos) {
+        this.historialPrestamos = historialPrestamos;
     }
 
     /**
-     * Metodo que vincula los DetallesPrestamo a un Libro
-     * @param detallePrestamo
+     * Metodo toString de la clase
      */
-    public void agregarDetallesPrestamos(DetallePrestamo detallePrestamo) {
-        getDetallesprestamos().add(detallePrestamo);
+    @Override
+    public String toString() {
+        return "Libro [titulo=" + titulo + ", codigo=" + codigo + ", isbn=" + isbn + ", autor=" + autor + ", editorial="
+                + editorial + ", fechaDePublicacion=" + fechaDePublicacion + ", stock=" + stock + "]";
     }
+
 }

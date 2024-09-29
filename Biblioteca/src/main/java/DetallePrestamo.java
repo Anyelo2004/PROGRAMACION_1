@@ -76,9 +76,9 @@ public class DetallePrestamo {
         int nuevoStock=libro.getStock() - cantidad;
         libro.setStock(nuevoStock);
         if(libro.getStock()==0){
-            libro.setEstado(Estado.NO_DISPONIBLE);
+            libro.setEstado(EstadoPrestamo.NO_DISPONIBLE);
         }else if(libro.getStock()>0){
-            libro.setEstado(Estado.DISPONIBLE);
+            libro.setEstado(EstadoPrestamo.DISPONIBLE);
         }else if(libro.getStock()<cantidad){
             System.out.println("La cantidad excede el stock por lo tanto no se puede crear el prestamo");
         }

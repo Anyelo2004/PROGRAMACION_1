@@ -1,4 +1,5 @@
 public enum EstadoPrestamo {
     OCUPADO,
-    DISPONIBLE;
+    DISPONIBLE,
+    NO_DISPONIBLE;
 }

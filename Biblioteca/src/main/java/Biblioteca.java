@@ -267,9 +267,8 @@ public class Biblioteca {
     /**
      * Metodo para calcular el total de dinero a pagar por empleado
      */
-
     public void totalDineroAPagarPorEmpleado() {
-        for (Biliotecario bibliotecario : listaBibliotecarios){
+        for (Bibliotecario bibliotecario : listaBibliotecarios){
             double totalAPagar = 0;
 
             for (Prestamo prestamo : bibliotecario.getListaPrestamos()){
@@ -277,7 +276,7 @@ public class Biblioteca {
                 totalAPagar += porcentajePrestamo;
             }
 
-            int antiguedad = bibliotecario.calcularAntiguedad;
+            int antiguedad = bibliotecario.calcularAntiguedad();
             double bonificacion = totalAPagar * (antiguedad * 0.20);
             totalAPagar += bonificacion;
         }

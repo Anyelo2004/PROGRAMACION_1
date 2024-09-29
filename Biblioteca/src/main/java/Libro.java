@@ -128,5 +128,4 @@ public class Libro {
         return "Libro [titulo=" + titulo + ", codigo=" + codigo + ", isbn=" + isbn + ", autor=" + autor + ", editorial="
                 + editorial + ", fechaDePublicacion=" + fechaDePublicacion + ", stock=" + stock + "]";
     }
-
 }

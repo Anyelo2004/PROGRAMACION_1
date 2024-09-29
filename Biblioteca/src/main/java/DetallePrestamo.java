@@ -63,7 +63,7 @@ public class DetallePrestamo {
      */
     public long calcularSubtotal(){
         long diferencia=calcularDiferenciaDias();
-        long subtotal=(long)prestamo.costoDia*diferencia;
+        long subtotal=(long)prestamo.getCostoPorDia()*diferencia;
         if(cantidad>1){
             subtotal*=cantidad;
         }
@@ -92,8 +92,4 @@ public class DetallePrestamo {
         return "DetallePrestamo [subtotal=" + subtotal + ", cantidad=" + cantidad + ", libro=" + libro + ", prestamo="
                 + prestamo + "]";
     }
-
-
-
-
 }

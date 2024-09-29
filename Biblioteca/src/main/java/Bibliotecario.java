@@ -2,9 +2,11 @@
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.time.LocalDate;
 
     public class Bibliotecario extends Persona{
         private double salario;
+        private int anioIngreso;
         public Collection<Prestamo> listaPrestamos;
 
         /**
@@ -15,9 +17,10 @@ import java.util.LinkedList;
          * @param correo
          * @param salario
          */
-        public Bibliotecario(String nombre, String cedula, String telefono, String correo, double salario){
+        public Bibliotecario(String nombre, String cedula, String telefono, String correo, double salario, int anioIngreso){
             super(nombre,cedula,telefono,correo);
             this.salario = salario;
+            this.anioIngreso = anioIngreso;
             listaPrestamos = new LinkedList<>();
         }
 
@@ -31,6 +34,14 @@ import java.util.LinkedList;
 
         public void setSalario(double salario) {
             this.salario = salario;
+        }
+
+        public int getAnioIngreso() {
+            return anioIngreso;
+        }
+
+        public void setAnioIngreso(int anioIngreso) {
+            this.anioIngreso = anioIngreso;
         }
 
         public Collection<Prestamo> getListaPrestamos() {
@@ -47,5 +58,14 @@ import java.util.LinkedList;
          */
         public int cantidadPrestamos() {
             return listaPrestamos.size();
+        }
+
+
+        /**
+         * Metodod que calcula la antiguedad de un empleado
+         * @return
+         */
+        public int calcularAntiguedad(){
+            return LocalDate.now().getYear() - anioIngreso;
         }
     }

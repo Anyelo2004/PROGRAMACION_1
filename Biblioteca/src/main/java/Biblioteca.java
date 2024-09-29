@@ -269,15 +269,17 @@ public class Biblioteca {
      */
 
     public void totalDineroAPagarPorEmpleado() {
-        for (Bibliotecario bibliotecario : listaBibliotecarios) {
+        for (Biliotecario bibliotecario : listaBibliotecarios){
             double totalAPagar = 0;
 
-            for (Prestamo prestamo : bibliotecario.getListaPrestamos()) {
-                totalAPagar += prestamo.calcularCostoTotal();
+            for (Prestamo prestamo : bibliotecario.getListaPrestamos()){
+                double porcentajePrestamo = prestamo.calcularCostoTotal() * 0.20;
+                totalAPagar += porcentajePrestamo;
             }
 
-            System.out.println("Bibliotecario: " + bibliotecario.getNombre() +
-                    ", Total a pagar: " + totalAPagar);
+            int antiguedad = bibliotecario.calcularAntiguedad;
+            double bonificacion = totalAPagar * (antiguedad * 0.20);
+            totalAPagar += bonificacion;
         }
     }
 }
